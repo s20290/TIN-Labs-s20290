@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/s20290/TIN-Labs-s20290#readme",
   "dependencies": {
-    "package.json": "^2.0.1"
+    "express": "^4.17.1",
+    "package.json": "^2.0.1",
+    "save": "^2.4.0"
   }
 }
