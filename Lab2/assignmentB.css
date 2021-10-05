@@ -1,0 +1,12 @@
+.main-form{
+    font-size: 1.5rem;
+    font-style: oblique;
+}
+
+.main-form label{
+    color: #1900ff;
+}
+
+.main-form label[for=pass]{
+    color: #ff0000;
+}

@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+/* 1.	Define font style and size for paragraphs and headers */
+p, header{
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* 2.	Define style and color of table borders */
+table, tr,td{
+    border: 2px solid;
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: #FF0000;
+}
+
+/* 3.	Remove underlines from links */
+a{
+    text-decoration: none;
+}
+
+/* 4.	Change the style of markers for unordered lists */
+ul{
+    list-style: upper-roman;
+    margin-top: 1rem;
+}

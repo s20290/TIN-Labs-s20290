@@ -1,0 +1,9 @@
+c)	Create a prototype of a student object using initializer. The object should contain an array with list of courses each student should take. Write a function creating new objects based on this prototype, setting their first and last name and id properties.
+
+Not sure what is being asked for here. 
+
+Is the list of courses just some random thing we put in?
+
+what does it mean to create new objects based on this prototype?
+
+
