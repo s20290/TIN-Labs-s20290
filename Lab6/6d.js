@@ -6,14 +6,16 @@ function submitForm(){
     let neededRows = formArr.length - tbodyRef.rows.length
     if(neededRows > 0){
         for(let i= 0; i<neededRows;i++){
-            var newRow = tbodyRef.insertRow()
+            if(formArr[i].value != ''){
+                tbodyRef.insertRow()
+            }
         }
     }
     let table = document.querySelector("#mytable").getElementsByTagName('tr')
     for(let i = 0;i< table.length;i++){
-        console.log(formArr.getAttributeNames())
-        for(let k = 0;k<formArr[i].length;k++){
-            
-        }
+        var c1 = table[i].insertCell()
+        var c2 = table[i].insertCell()
+        c1.innerText = formArr[i].id
+        c2.innerText = formArr[i].value
     }
 }
