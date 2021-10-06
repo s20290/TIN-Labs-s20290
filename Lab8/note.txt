@@ -1,0 +1,2 @@
+stuck on 8c, don't know how to use ejs properly
+cant seem to send the body to ejs template
