@@ -1,5 +1,5 @@
 {
-    "id":1,
-    "name":"Bob",
-    "email":"something@something.com"
+    "num1":1,
+    "num2":"4",
+    "arithmetic":"+"
 }
