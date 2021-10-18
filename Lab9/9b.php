@@ -1,3 +1,5 @@
-if(isset($_POST['ex'])){
-    echo 'POST: '. $_POST['ex']
-}
+<?php
+    foreach ($_POST as $post_var){
+        echo strtoupper($post_var) . "<br/>";
+    }
+?>

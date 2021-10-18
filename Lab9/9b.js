@@ -14,17 +14,16 @@ window.onload = function(){
 function sendData(){
     var xhr = new XMLHttpRequest()
     var form = document.getElementById("myForm")
-    // xhr.onreadystatechange = ()=>{
-    //     if(this.readyState == 4 && this.status == 200){
-    //         document.getElementById("result").innerHTML = this.responseText
-    //     }
-    // }
     console.log(form)
-    xhr.open("POST", "process.php",true)
+    xhr.open("POST", "http://127.0.0.1:5500/Lab9/9b.html")
     xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
 
     xhr.onload = ()=>{
-        console.log(this.responseText)
+        if(this.status == 200 && this.readyState == 4){
+            console.log("its a me "+this.responseText)
+            const res = document.getElementById("result")
+            res.innerHTML = this.responseText
+        }
     }
-    xhr.send("")
+    xhr.send()
 }
