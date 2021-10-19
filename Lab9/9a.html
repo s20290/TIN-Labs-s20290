@@ -8,9 +8,20 @@
 </head>
 <body>
     <script src="./9a.js"></script>
-    <h1>AJAX</h1>
-    <button id="mybtn">Get json</button>
-    <h1>Calculation</h1>
+
+    <div>
+        <form action="/jsonPost" method="POST" id="jsonForm">
+            <label for="num1">Num1</label>
+            <input type="number" name="num1" id="num1">
+            <label for="num2">Num2</label>
+            <input type="number" name="num2" id="num2">
+            <label for="arith">Arithmetic</label>
+            <input type="text" name="arith" id="arith">
+            
+        </form>
+        <button type="submit" onclick="sendRequest()">Submit</button>
+    </div>
+
     <div id="ans"></div>
 </body>
 </html>

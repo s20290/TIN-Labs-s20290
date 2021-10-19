@@ -1,44 +1,52 @@
 
-window.onload = function(){
-    let btn = document.getElementById("mybtn")
-    console.log(btn)
-    if(btn){
-        btn.addEventListener('click',getJsonData)
-    }
-}
+const postUrl = "http://localhost:3000/jsonPost"
 
-function getJsonData(){
+function sendRequest(){
+    
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "9a.json",true)
-
-    xhr.onload = function(){
-        if(this.status == 200){
-            let req = JSON.parse(this.responseText)
-            let output =`<ul>
-                <li>Num1: ${req.num1}</li>
-                <li>Num2: ${req.num2}</li>
-                <li>Arithmetic: ${req.arithmetic}</li>
-                <li>Answer: ${calculate(req)}</li>
-            </ul>`;
-
-            document.getElementById('ans').innerHTML = output
+    xhr.open("POST",postUrl,true)
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    xhr.onreadystatechange = ()=>{
+        var done= 4, ok =200
+        if(xhr.readyState == done && xhr.status == ok){
+            document.getElementById('ans').innerHTML = `Answer: ${xhr.response}`
         }
     }
-    xhr.send()
+    let myJson = calculate()
+    console.log(myJson)
+    xhr.send(myJson)
 }
-function calculate(req){
-    let num1 = parseInt(req.num1)
-    let num2 = parseInt(req.num2)
-    switch(req.arithmetic){
+
+function calculate(){
+    console.log(document.getElementById("num1"))
+    let num1 = parseInt(document.getElementById("num1").value)
+    let num2 = parseInt(document.getElementById("num2").value)
+    let arith = document.getElementById("arith").value
+    let ans;
+    switch(arith){
         case '+':
-            return num1 + num2
+            ans= num1 + num2
+            break
         case '-':
-            return num1 - num2
+            ans= num1 - num2
+            break
         case '*':
-            return num1 * num2
+            ans= num1 * num2
+            break
         case '/':
-            return num1 / num2
+            ans= num1 / num2
+            break
         default:
-            return "Unknown arithmetic"
+            ans = "Unknown arithmetic"
+            break
     }
+    let jsonString = `{"num1":"${num1}", "num2": "${num2}", "arithmetic":"${arith}", "answer":"${ans}"}`
+    
+    return jsonString
 }
+
+//fix json, json parser
+//cool tip, learn express structure, middleware and so on
+//callback functions
+//remember which part is happening on server and client
+//
