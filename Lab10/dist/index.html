@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Output Management</title>
+    
+  </head>
+  <body>
+    <script src="./index.bundle.js"></script>
+    <form action="/">
+      <label for="val">Value</label>
+      <input type="number" name="val" id="val">
+      <label for="unit">Unit</label>
+      <select name="units" id="units">
+        <option value="F">F</option>
+        <option value="C">C</option>
+        <option value="K">K</option>
+        <option value="KM">KM</option>
+        <option value="M">M</option>
+      </select>
+    </form>
+    <button id="mybtn">Submit</button>
+    <p id="result"></p>
+  </body>
+</html>

@@ -3,7 +3,6 @@ var path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
 
-const filename = "D:\\pjatk\\3rd year\\5thSemester\\TIN\\labs\\Lab8\\8b.html"
 
 
 

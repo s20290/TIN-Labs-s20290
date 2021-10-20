@@ -1,5 +1,5 @@
 // const filename = "D:\\pjatk\\3rd year\\5thSemester\\TIN\\labs\\Lab7"
-const filename = "Z:\\TIN\\TIN-Labs-s20290\\Lab7"
+const filename = "./Lab7/7b.js"
 // const filename = ".\\sup.txt" 
 const { watch } = require('fs/promises');
 
