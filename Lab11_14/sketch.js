@@ -36,6 +36,7 @@ function game(){
   }
   for (let i = 0; i<aliens.length;i++){
     aliens[i].show()
+    // aliens[i].move()
   }
 }
 function keyPressed(){
