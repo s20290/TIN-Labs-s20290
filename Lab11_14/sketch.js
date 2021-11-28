@@ -1,3 +1,4 @@
+
 var player
 var aliens = []
 var bullets = []
@@ -7,6 +8,7 @@ var highscores = false
 var score
 var mm
 var playerDied = false
+
 function setup() {
   createCanvas(400, 400);
   mm = new Mainmenu()
@@ -14,23 +16,23 @@ function setup() {
 }
 
 function draw() {
-  if(playerDied){
-    mm.show()
-  }else{
-    if(gameStart){
-      game()  
-    }else{
-      gameSetup(10)
-    }
+  if(mainMenu || playerDied){
+     mm.show()
+  }else if(gameStart){
+     game()
   }
+  
+  
   
 }
 function gameSetup(alienNum){
   player = new Player()
   score = new Score()
+  bullets = []
   for (let i = 0; i<alienNum;i++){
     aliens[i] = new Alien(((width/alienNum)*i)+(width/alienNum)/3,20)
   }
+  playerDied = false
   gameStart = true
 }
 function game(){
@@ -46,6 +48,9 @@ function game(){
     if(keyIsDown(LEFT_ARROW)){
       player.move(-1)
     }   
+  }
+  if(aliens.length == 0){
+    mainMenu = true   
   }
   let prevAliens = aliens.length
   for (let i = 0; i<bullets.length;i++){
@@ -80,7 +85,9 @@ function game(){
     aliens[i].show()
     aliens[i].move()
     if(aliens[i].hits(player)){
-       playerDied = true
+      playerDied = true
+      mainMenu = true
+      gameStart = false
     }
     if(aliens[i].getLength() > width || aliens[i].x < 0 ){
        edge = true
@@ -99,14 +106,27 @@ function keyPressed(){
     bullets.push(bullet)
   }
 }
-
+function saveScore(){
+  
+  let path = "./highscore.txt"
+  let writer = createWriter(path)
+  writer.write("heelllo")
+  writer.close()
+  
+}
 function mousePressed(){
-  if(mm.startClicked(mouseX,mouseY)){
-     console.log("clicked on start")
-  }else{
-    console.log("idk")
+  if(mainMenu){
+    console.log("clicked")
+    if(mm.startClicked(mouseX,mouseY)){
+      gameSetup(10)
+      mainMenu = false
+    }else if(mm.highscoreClicked(mouseX,mouseY)){
+       console.log("clicked on highscore")
+    }else{
+      console.log("idk")
+      console.log(mouseX)
+      console.log(mouseY)
+    } 
   }
-  if(mm.highscoreClicked(mouseX,mouseY)){
-     
-  }
+  
 }
