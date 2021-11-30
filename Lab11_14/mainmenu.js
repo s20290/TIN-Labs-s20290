@@ -16,6 +16,18 @@ function Mainmenu(){
     fill(255,255,255)
     
   }
+  this.showHighscore = ()=>{
+    background(0)
+    text('Start',width/2,height/2)
+    textSize(12)
+    fill(255,255,255)
+    
+    textSize(20)
+    text("HIGHSCORES",width/2 - 200, height/5)
+    
+    textAlign(CENTER)
+    
+  }
   this.startClicked = (x,y)=>{
     return x >= 200 && x <=230 && y >= 180 && y <= 205
   }
